@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Teko:wght@300..700&display=swap');
+
+
+/* Lato Font Family */
+  .lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Teko Font Family */
+.teko-regular {
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+/* 
+Desktop Styles
+Note: Spacing follows specs, with slight adjustments to padding, 
+height, and width for a closer match to the wireframe. Flexbox is 
+used in navigation and image alignment, with grids for main layout.
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+/*Main body styling */	
+body {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  background-color: #231651; 
+  color: #231651; 
+}
+
+img {
+  object-fit: cover; /* Ensures image covers its container */
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+button {
+  font-family: "Teko", sans-serif;
+  font-size: 2em;
+  background-color: #ffffff;
+  color: #070410;
+  padding: 16px;
+  border-radius: 16px; /* Rounded corners */
+  border: none;
+}
+
+button:hover {
+  background-color: rgb(219, 219, 219);
+}
+
+/* Navigation bar */
+.navigation {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-inline: 16px;
+  grid-row: 1/2;
+  background-color: #070410;
+  color: white;
+  display: flex; 
+  flex-direction: row;
+/* Without align-items, the genre options won't be vertically aligned*/
+  align-items: baseline; /* Vertical alignment for genre options */
+  gap: 16px;
+  box-shadow: 0 10px 0px 0px #EEF36A; /* Bottom shadow for visual separation */
+}
+
+#logo {
+  font-family: "Teko", sans-serif;
+  padding-left: 48px;
+  font-size: 3em;
+}
+
+.genres {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2.5;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  top: -10%;
+}
+
+#one {
+  grid-column: 1/2;
+  padding-right: 16px;
+}
+
+#two {
+  grid-column: 2/3;
+  padding-right: 16px;
+}
+
+#three {
+  grid-column: 3/4;
+  padding-right: 16px;
+}
+
+#three {
+  grid-column: 4/5;
+  padding-right: 16px;
+}
+
+#search {
+  flex-grow: 0.4;
+  padding: 5px 16px 5px 16px;
+}
+
+/* Main content container and movies. */
+.maincontent {
+  display: grid;
+  grid-template-rows: 450px 800px 450px 450px 450px 10px; /* Layout for rows */
+  grid-template-columns: repeat(2,1fr); /* Two columns */
+  row-gap: 48px;
+  column-gap: 48px;
+  padding-inline: 48px;
+  margin-top: 48px;
+  grid-row: 2/4;
+  max-width: 900px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Movie box containers with compact spacing. Note: Classes with shared styles are grouped with commas for efficiency, a technique learned in part 2. */
+.movie1, .movie2, .movie3, .movie4, .movie5, .movie6 {
+  font-size: 1.5em;
+  display: grid;
+  background-color: #4DCCBD;
+  box-shadow: 16px 16px #EEF36A;
+  text-align: center;
+  align-items: center;
+  height: 450px;
+}
+
+.movie1, .movie4, .movie5, .movie6 {
+  grid-column: 1/3;
+}
+
+.info1, .info2, .info3, .info4, .info5, .info6 {
+  grid-area: info;
+  text-align: left;
+  padding-inline: 16px;
+  align-self:first baseline;
+}
+
+.info1, .info4, .info5, .info6 {
+  margin-top: 16px;
+}
+
+#btn1, #btn2, #btn3, #btn4, #btn5, #btn6 {
+  grid-area: button;
+  background-color: #070410;
+  color: white;
+}
+
+#btn2, #btn3, #btn4, #btn5, #btn6 {
+  margin: 16px;
+}
+
+.image1, .image2, .image3, .image4, .image5, .image6 {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden
+}
+
+/* To add spaces inbetween areas in grid-template-areas, a dot is added to ascertain the 'space' */
+.movie1 {
+  grid-template-rows: 1fr 16px 1fr;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-areas:
+  "image image image"
+  ". . button"
+  "info info button";
+}
+
+#btn1 {
+  margin-right: 16px;
+  object-fit: cover;
+  padding: .75em;
+  width: 75%;
+  justify-self: right;
+}
+
+.info1 {
+  width: 100%;
+}
+
+.image1 img {
+  height: 220px;
+}
+
+.movie2, .movie3 {
+  display: grid; 
+  grid-template-rows: 200px 200px 250px 150px;
+  grid-template-columns: none;
+  grid-template-areas: 
+  "image"
+  "image"
+  "info"
+  "button";
+  height: 800px;
+}
+
+.info2, .info3 {
+  padding-top: 16px;
+}
+
+.image2 img, .image3 img {
+  height: 400px;
+}
+
+.movie4, .movie5, .movie6 {
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(2,1fr);
+  grid-template-areas: 
+  "image image info info"
+  "image image button button";
+}
+
+.image4 img, .image5 img, .image6 img {
+  height: 450px;
+}
+/* 
+Note: The layout for .movie2 and .movie3 repeats the Desktop wireframe.
+To adapt spacing and grid layouts for tablet screens, values like margin 
+and padding are reset to 0 in the media queries, allowing for new tablet-specific adjustments.
+*/
+
+@media screen and (min-width: 721px) and (max-width: 1024px) {
+
+  #logo {
+    font-size: 2em;
+  }
+
+  .maincontent {
+    grid-template-rows: repeat(3,950px);
+    grid-template-columns: repeat(2,1fr);
+    row-gap: 32px;
+    column-gap: 32px;
+    padding-inline: 32px;
+    margin-top: 32px;
+    max-width: 900px;
+    padding-bottom: 32px;
+  }
+  
+  .movie1, .movie2 {
+    grid-row: 1/2;
+  }
+
+  .movie3, .movie4 {
+    grid-row: 2/3;
+  }
+
+  .movie5, .movie6 {
+    grid-row: 3/4;
+  }
+
+  .movie1, .movie3, .movie5 {
+    grid-column: 1/2;
+  }
+
+  .movie2, .movie4, .movie6 {
+    grid-column: 2/3;
+  }
+
+  .movie1, .movie2, .movie3, .movie4, .movie5, .movie6 {
+    display: grid; 
+    grid-template-rows: 200px 200px 250px 150px 150px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "image image"
+    "image image"
+    "info info"
+    "button button"
+    "button button";
+    height: 950px;
+  }
+  
+  .info1, .info2, .info3, .info4, .info5, .info6 {
+    width: 90%;
+    height: 70%;
+    padding-top: 16px;
+  }
+  
+  .image1 img, .image2 img, .image3 img, .image4 img, .image5 img, .image6 img {
+    height: 400px;
+  }
+
+  /* In order to detect the line skip from the HTML code for 'WATCH NOW' the property 'white-space' is given 'pre-line' */
+  #btn1, #btn2, #btn3, #btn4, #btn5, #btn6 {
+    padding-inline: 16px;
+    margin-right: 0;
+    margin-left: 0;
+    object-fit: cover;
+    padding: .4em;
+    justify-self: center;
+    width: 95%;
+    height: 60%;
+    white-space: pre-line;
+  }
+
+  .info1, .info4, .info5, .info6 {
+    margin-top: 0;
+  }
+
+}
+/* 
+Mobile Frame 
+Note: Mostly adapted from tablet, with movies in a single column. 
+Genre options are hidden (display: none), and box shadows are adjusted 
+to create a bordered effect between movie containers.
+*/
+
+@media screen and (min-width: 360px) and (max-width: 720px) {
+
+  .navigation { box-shadow: 0 16px 0px 0px #4DCCBD; }
+
+  #genre1, #genre2, #genre3, #genre4 { display: none; }
+
+  #logo {
+    font-size: 2em;
+  }
+
+  .maincontent {
+    padding-top: 16px;
+    grid-template-rows: repeat(6,800px);
+    grid-template-columns: auto;
+    row-gap: 16px;
+    column-gap: 0;
+    padding-inline: 0;
+    margin-top: 0;
+    max-width: 900px;
+    padding-bottom: 16px;
+    box-shadow: 0 16px 0px 0px #4DCCBD;
+  }
+
+  .movie1 { grid-row: 1/2;}
+  .movie2 { grid-row: 2/3;}
+  .movie3 { grid-row: 3/4;}
+  .movie4 { grid-row: 4/5;}
+  .movie5 { grid-row: 5/6;}
+
+  .movie1, .movie2, .movie3, .movie4, .movie5, .movie6 {
+    box-shadow: 0 16px 0px 0px #4DCCBD;
+    grid-column: 1/2;
+    display: grid; 
+    grid-template-rows: 200px 200px 200px 100px 100px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "image image"
+    "image image"
+    "info info"
+    "button button"
+    "button button";
+    height: 800px;
+  }
+  
+  .info1, .info2, .info3, .info4, .info5, .info6 {
+    width: 90%;
+    height: 70%;
+    padding-top: 16px;
+  }
+  
+  .image1 img, .image2 img, .image3 img, .image4 img, .image5 img, .image6 img {
+    height: 400px;
+  }
+
+  #btn1, #btn2, #btn3, #btn4, #btn5, #btn6 {
+    padding-inline: 0;
+    margin-right: 0;
+    margin-left: 0;
+    object-fit: cover;
+    padding: .4em;
+    width: 95%;
+    height: 50%;
+    white-space: none;
+    justify-self: center;
+  }
+
+  .info1, .info4, .info5, .info6 {
+    margin-top: 0;
+  }
+}
